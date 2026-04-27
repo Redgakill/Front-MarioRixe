@@ -1,0 +1,38 @@
+.Background {
+  background: linear-gradient(162deg,rgba(155, 42, 42, 1) 24%, rgba(212, 106, 106, 1) 100%);
+}
+.viewport{
+  width: 100vw;  /* 100% de la largeur de la fenêtre */
+  height: 100vh;
+}
+.title{
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  padding: 3vh;
+}
+.margin-5{
+  margin: 5vh;
+}
+.padding-5{
+  padding: 5vh;
+}
+.Line{
+  border: 0;           /* On enlève la bordure par défaut */
+  height: 2px;         /* L'épaisseur de la ligne */
+  background: white; /* Votre couleur (Hex, RGB ou nom) */
+  position: relative;
+  top: 2vh;
+}
+
+button{
+  width: 10vh;
+  height: 5vh;
+  background-color: #BD3039;
+  border:#B22222;
+  border-radius: 10px;
+}
+button:hover{
+  cursor: pointer;
+  background-color: #8B0000;
+}
