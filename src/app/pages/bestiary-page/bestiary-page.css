@@ -36,3 +36,8 @@ button:hover{
   cursor: pointer;
   background-color: #8B0000;
 }
+.grille{
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-auto-rows: auto;
+}
