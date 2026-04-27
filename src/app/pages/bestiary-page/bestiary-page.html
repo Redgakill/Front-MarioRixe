@@ -11,4 +11,9 @@
     </nav>
     <div class="Line"></div>
   </div>
+  <div>
+    @for(character of characters ; track character){
+      <p>{{character.name}}</p>
+    }
+  </div>
 </div>
