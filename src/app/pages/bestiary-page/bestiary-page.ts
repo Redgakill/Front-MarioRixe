@@ -23,7 +23,14 @@ export class BestiaryPage {
       }
     })
   }
-
+  Trieby(propriete: string){
+    this.characters.sort((a: any, b: any) => {
+      if (typeof a[propriete] === 'string') {
+        return a[propriete].localeCompare(b[propriete]);
+      }
+      return a[propriete] - b[propriete];
+    });
+  }
   HomePage(){
     this.router.navigate(['/']);
   }

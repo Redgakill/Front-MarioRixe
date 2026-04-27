@@ -6,9 +6,12 @@
     <h1 class="title">Mariodex</h1>
   </div>
   <div class="margin-5 ">
-    <nav>
-      <button>Filtre</button>
-    </nav>
+    <label for="tri">Trier</label>
+    <select (change)="Trieby($any($event.target).value)">
+      <option value="name">Nom</option>
+      <option value="hp">Point de vie</option>
+      <option value="attack">Attaque</option>
+    </select>
     <div class="Line"></div>
   </div>
   <div class="grille">
