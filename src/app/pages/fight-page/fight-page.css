@@ -1,0 +1,17 @@
+.theater{
+  width: 100%;
+  min-height: 100vh;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  overflow: hidden;
+  object-fit: fill;
+}
+
+.theater img {
+  width: 100vw;
+  min-height: 100vh;
+  position: absolute;
+  top: -50px;
+}
