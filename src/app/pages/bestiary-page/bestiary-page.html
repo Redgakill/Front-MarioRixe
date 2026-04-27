@@ -11,9 +11,12 @@
     </nav>
     <div class="Line"></div>
   </div>
-  <div>
+  <div class="grille">
     @for(character of characters ; track character){
-      <p>{{character.name}}</p>
+      <div >
+        <img src="{{character.sprite}}">
+        <p>{{character.name}}</p>
+      </div>
     }
   </div>
 </div>
