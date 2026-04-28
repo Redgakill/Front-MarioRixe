@@ -40,8 +40,10 @@ button:hover{
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-auto-rows: auto;
+}
+.center-left{
   position: relative;
-  left: 3vw;
+  left : 2vw;
 }
 select{
   width: 10vh;
