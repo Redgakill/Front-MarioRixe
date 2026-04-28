@@ -1,1 +1,24 @@
-<p>inventory-page works!</p>
+<div class="Background viewport">
+  <div>
+    <div class="padding-5">
+      <button (click)="HomePage()">Home</button>
+    </div>
+    <h1 class="title"> Inventaire </h1>
+  </div>
+  <div class="margin-5 ">
+
+    <select (change)="Trieby($any($event.target).value)">
+      <option value="name">Nom</option>
+      <option value="effect">Effect</option>
+    </select>
+    <div class="Line"></div>
+  </div>
+  <div class="grille ">
+    @for(item of items ; track item){
+      <div class="center-left">
+        <img src="{{item.sprite_url}}">
+        <p>{{item.name}}</p>
+      </div>
+    }
+  </div>
+</div>
