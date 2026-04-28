@@ -7,11 +7,27 @@
   position: absolute;
   overflow: hidden;
   object-fit: fill;
+  z-index: -1;
 }
 
-.theater img {
+.theaters {
   width: 100vw;
   min-height: 100vh;
   position: absolute;
   top: -50px;
+  z-index: -1;
+}
+
+.position-player{
+  position: relative;
+  top:37vw;
+  left:25vw;
+}
+.retourne{
+  transform: rotateY(180deg);
+}
+.position-bot{
+  position: relative;
+  top:30vw;
+  left:65vw;
 }

@@ -1,3 +1,13 @@
 <section class="theater">
-  <img src="/Theater.jpg" alt="Fight Background">
+  <img class="theaters" src="/Theater.jpg" alt="Fight Background">
+  <div class="position-player">
+    <img [src]="Playerscharacters.sprite_url" alt="Player character" class="retourne">
+  </div>
+  <div class="position-bot">
+    <img [src]="Botcharacters.sprite_url" alt="Bot character" class="">
+    <p>{{Botcharacters.hp}}</p>
+  </div>
+  <div>
+    <button (click)="Attaquer()">{{attacks[1].name}}</button>
+  </div>
 </section>
