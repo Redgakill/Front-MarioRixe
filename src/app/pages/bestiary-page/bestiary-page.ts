@@ -19,12 +19,19 @@ export class BestiaryPage {
     this.characterServices.getAllCharacter().subscribe({
       next: data => {
         this.characters = data;
+        this.Trieby("name")
         this.cd.detectChanges();
       }
     })
   }
   Trieby(propriete: string){
     this.characters.sort((a: any, b: any) => {
+      if (a[propriete] == null){
+        return 1;
+      }
+      if (b[propriete] == null){
+        return -1;
+      }
       if (typeof a[propriete] === 'string') {
         return a[propriete].localeCompare(b[propriete]);
       }
