@@ -41,3 +41,10 @@ button:hover{
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-auto-rows: auto;
 }
+select{
+  width: 10vh;
+  height: 5vh;
+  background-color: #BD3039;
+  border:#B22222;
+  border-radius: 10px;
+}
