@@ -1,0 +1,57 @@
+.Background {
+  background: linear-gradient(162deg, rgb(184, 191, 23) 24%, rgb(213, 194, 5) 100%);
+}
+.viewport{
+  width: 100%;  /* 100% de la largeur de la fenêtre */
+  height: 100%;
+}
+.title{
+  text-align: center;
+  color: #000000;
+  font-size: 50px;
+  padding: 3vh;
+}
+.margin-5{
+  margin: 5vh;
+}
+.padding-5{
+  padding: 5vh;
+}
+.Line{
+  border: 0;           /* On enlève la bordure par défaut */
+  height: 2px;         /* L'épaisseur de la ligne */
+  background: #000000; /* Votre couleur (Hex, RGB ou nom) */
+  position: relative;
+  top: 2vh;
+}
+
+button{
+  width: 10vh;
+  height: 5vh;
+  background-color: #f1c71a;
+  border: #cdb51b;
+  border-radius: 10px;
+}
+button:hover{
+  cursor: pointer;
+  background-color: #d8b91e;
+}
+.grille{
+  display: grid;
+  grid-template-columns: 18% 18% 18% 18% 18%;
+  grid-auto-rows: auto;
+}
+
+.center-left{
+  position: relative;
+  left: 7vw;
+  overflow: hidden;
+}
+
+select {
+  width: 10vh;
+  height: 5vh;
+  background-color: #d8cf24;
+  border: #d8b819;
+  border-radius: 10px;
+}
