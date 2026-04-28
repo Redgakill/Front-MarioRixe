@@ -1,8 +1,52 @@
 .home-page{
   width: 100%;
   min-height: 100vh;
-  background-image:url("https://gameinformer.com/sites/default/files/styles/content_header_extra_max/public/2024/05/20/78f82575/udpateheaderswitch_papermario_thethousandyeardoor_keyart.jpg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.home-page img {
+  filter: blur(5px);
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.buttonFight{
+  background-color: var(--red);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.buttonBestiary{
+  background-color: var(--green);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.buttonInventory{
+  background-color: var(--blue);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.button-containers{
+  display: flex;
+  z-index: 100;
 }

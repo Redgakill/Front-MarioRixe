@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {NgStyle} from '@angular/common';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-home-page',
@@ -7,4 +8,21 @@ import {NgStyle} from '@angular/common';
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
 })
-export class HomePage {}
+export class HomePage {
+
+  constructor(private router :Router){}
+
+  DirInventory ( ) {
+    this.router.navigate(['/inventory']);
+  }
+
+  DirBestiary ( ) {
+    this.router.navigate(['/bestiary']);
+  }
+
+
+
+  DirFight(){
+    this.router.navigate(['/fight']);
+  }
+}

@@ -4,3 +4,9 @@
   box-sizing: border-box;
 }
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --green: #12c612;
+  --blue: #00bcd4;
+  --red: #d82436;
+}
