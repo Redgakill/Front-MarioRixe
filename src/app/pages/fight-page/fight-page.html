@@ -1,13 +1,35 @@
 <section class="theater">
   <img class="theaters" src="/Theater.jpg" alt="Fight Background">
-  <div class="position-player">
+  <div class="position-player div_widthmax12">
     <img [src]="Playerscharacters.fight_sprite" alt="Player character" class="retourne">
+    <div class=" barre_de_vie_player ">
+      <div class ="barre_actuel"  [style.--health]="(Playerscharacters.hp*100)/playermaxhealth"></div>
+    </div>
   </div>
-  <div class="position-bot">
+  <div class="position-bot div_widthmax12">
     <img [src]="Botcharacters.fight_sprite" alt="Bot character" class="">
-    <p>{{Botcharacters.hp}}</p>
+    <div class="barre_de_vie_bot">
+      <div class="barre_actuel"  [style.--health]="(Botcharacters.hp*100)/botmaxhealth" ></div>
+    </div>
   </div>
   <div>
-    <button (click)="Attaquer()">{{attacks[1].name}}</button>
+    <div>
+      <h1 class="title-attack">Attacks:</h1>
+    </div>
+    <div class="card-attack ">
+      <div class="line_scroll">
+        @for (attack of attacks;track attack){
+          <button class="attacks-card" (click)="Attaquer(attack.slug)">{{attack.name}}</button>
+        }
+      </div>
+    </div>
+    <div class="card-logs">
+      <div class="line_scroll">
+        @for(log of logs;track log){
+          <p>{{ log }}</p>
+        }
+      </div>
+    </div>
+
   </div>
 </section>
