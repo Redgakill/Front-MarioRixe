@@ -16,6 +16,9 @@ export class FightPage {
   public attacks:any[] = []
   public Playerscharacters:any
   public Botcharacters:any
+  public playermaxhealth :any
+  public botmaxhealth:any
+  public logs:any[]=[]
 
 
   constructor(private http: HttpClient, private cd: ChangeDetectorRef, private router: Router, private characterservics: CharacterServices, private fightservice:FightServices) { }
@@ -24,7 +27,9 @@ export class FightPage {
     this.characterservics.getAllCharacter().subscribe({
       next: (data) => {
         this.Playerscharacters = data[0];
+        this.playermaxhealth = data[0].hp;
         this.Botcharacters = data[1];
+        this.botmaxhealth=this.Botcharacters.hp
         this.cd.detectChanges();
       },
     });
@@ -35,17 +40,17 @@ export class FightPage {
       },
     });
   }
-  Attaquer(){
+  Attaquer(attack:string) {
     const data_send ={
       "self":this.Playerscharacters,
       "enemy":this.Botcharacters,
-      "attackSlug": this.attacks[1].slug,
+      "attackSlug": attack,
       "itemSlug": null
     }
     this.fightservice.Fight(data_send).subscribe({next: data => {
         this.Playerscharacters = data.self;
         this.Botcharacters = data.enemy;
-        alert(data.log)
+        this.logs.push(data.log);
         this.cd.detectChanges();
       }}
     )
