@@ -1,0 +1,14 @@
+<section class="Background_characters viewport_page">
+  <div class="sprite_card">
+    <img class="sprite_image retourne" src="{{characters.fight_sprite}}">
+    <h1 class="sprite_name">{{characters.name}}</h1>
+  </div>
+  <div class="stat_card ">
+      <span class="stat">{{characters.hp}}<div class="barre_stat position-hp"><div class="barre_stat_actuel" [style.--stat]="(characters.hp*100)/maxhp"></div></div></span>
+      <span class="stat">{{characters.attack}}<div class="barre_stat position-attack"><div class="barre_stat_actuel" [style.--stat]="(characters.attack*100)/20"></div></div></span>
+      <span class="stat">{{characters.defense}}<div class="barre_stat position-defense"><div class="barre_stat_actuel" [style.--stat]="(characters.defense*100)/20"></div></div></span>
+  </div>
+  <div class="move_pool_card">
+
+  </div>
+</section>

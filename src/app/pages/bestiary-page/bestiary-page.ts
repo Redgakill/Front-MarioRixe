@@ -41,4 +41,7 @@ export class BestiaryPage {
   HomePage(){
     this.router.navigate(['/']);
   }
+  CharacterPage(id:string){
+    this.router.navigate([`/character/${id}`]);
+  }
 }

@@ -41,10 +41,7 @@ button:hover{
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-auto-rows: auto;
 }
-.center-left{
-  position: relative;
-  left : 2vw;
-}
+
 select{
   width: 10vh;
   height: 5vh;
@@ -55,4 +52,14 @@ select{
 select:hover{
   cursor: pointer;
   background-color: #8B0000;
+}
+.name_character{
+  color: white;
+  text-align: center;
+}
+img:hover{
+  cursor: pointer;
+}
+.padding-3{
+  padding: 3vh;
 }

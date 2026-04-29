@@ -1,0 +1,83 @@
+.Background_characters {
+  background: linear-gradient(162deg,rgba(155, 42, 42, 1) 24%, rgba(212, 106, 106, 1) 100%);
+}
+.viewport_page{
+  width: 100%;
+  height: 100vh; /* Utilise height fixe au lieu de min-height */
+  position: fixed; /* 'fixed' est plus stable pour un arrière-plan */
+  top: 0; /* On remet à 0 pour éviter le dépassement */
+}
+.sprite_card{
+  background-color: #8B0000;
+  width: 30vw;
+  height:35vw;
+  border-radius: 2vw;
+  border: 1vw solid maroon;
+  position: relative;
+  top: 8vw;
+  left: 10vw;
+}
+.sprite_image{
+  width: 15vw;
+  position: relative;
+  top: 4vw;
+  left: 6.5vw;
+}
+.retourne{
+  transform: rotateY(180deg);
+}
+.sprite_name{
+  position:relative;
+  top: 6vw;
+  left: 6.5vw;
+  font-size: 4vw;
+  color: white;
+}
+.stat_card{
+  background-color: #8B0000;
+  width: 40vw;
+  height:20vw;
+  border-radius: 2vw;
+  border: 1vw solid maroon;
+  position: relative;
+  top: -27vw;
+  left: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.stat{
+  margin: 1vw;
+  color: white;
+  font-size: 2vw;
+}
+.barre_stat{
+  border: 0;
+  width:32vw;
+  height: 1vw;
+  border-radius: 10vw;
+  background: white;
+  position: absolute;
+}
+.barre_stat_actuel{
+  border: 0;
+  border-radius: 10vw;
+  width:calc(var(--stat)* 1%);
+  height: 100%;
+  background: red;
+  position: absolute;
+  z-index: 1;
+}
+.position-hp{
+  top : 2.4vw;
+  left: 4.4vw;
+}
+.position-attack{
+  top : 8.4vw;
+  left: 4.4vw;
+}
+.position-defense{
+  top : 14.4vw;
+  left: 4.4vw;
+}
