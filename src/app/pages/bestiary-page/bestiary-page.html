@@ -11,14 +11,15 @@
       <option value="name">Nom</option>
       <option value="hp">Point de vie</option>
       <option value="attack">Attaque</option>
+      <option value="defense">Defense</option>
     </select>
     <div class="Line"></div>
   </div>
   <div class="grille padding-5 ">
     @for(character of characters ; track character){
-      <div class="center-left">
-        <img src="{{character.inv_sprite}}">
-        <p>{{character.name}}</p>
+      <div class=" padding-3">
+        <img src="{{character.inv_sprite}}" (click)="CharacterPage(character._id)">
+        <h1 class="name_character">{{character.name}}</h1>
       </div>
     }
   </div>
