@@ -1,13 +1,13 @@
 <section class="theater">
   <img class="theaters" src="/Theater.jpg" alt="Fight Background">
   <div class="position-player div_widthmax12">
-    <img [src]="Playerscharacters.fight_sprite" alt="Player character" class="retourne">
+    <img [src]="Playerscharacters.fight_sprite" alt="Player character" class="retourne image_size">
     <div class=" barre_de_vie_player ">
       <div class ="barre_actuel"  [style.--health]="(Playerscharacters.hp*100)/playermaxhealth"></div>
     </div>
   </div>
   <div class="position-bot div_widthmax12">
-    <img [src]="Botcharacters.fight_sprite" alt="Bot character" class="">
+    <img [src]="Botcharacters.fight_sprite" alt="Bot character" class="image_size">
     <div class="barre_de_vie_bot">
       <div class="barre_actuel"  [style.--health]="(Botcharacters.hp*100)/botmaxhealth" ></div>
     </div>
