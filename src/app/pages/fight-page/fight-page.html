@@ -19,7 +19,7 @@
     <div class="card-attack ">
       <div class="line_scroll">
         @for (attack of attacks;track attack){
-          <button class="attacks-card" (click)="Attaquer(attack.slug)">{{attack.name}}</button>
+          <button class="attacks-card"  (click)="Attaquer(attack.slug)" [disabled]="finish">{{attack.name}}</button>
         }
       </div>
     </div>
@@ -27,6 +27,13 @@
       <div class="line_scroll">
         @for(log of logs;track log){
           <p>{{ log }}</p>
+        }
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="line_scroll_item">
+        @for (item of items; track item){
+          <button class="item activate" (click)="Active_item(item.slug)">{{item.name}}</button>
         }
       </div>
     </div>
