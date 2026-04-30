@@ -181,3 +181,13 @@ button:hover{
   scrollbar-width: thin;
   scrollbar-color: #cdb51b black;
 }
+.Fp_card{
+  border: 0.5vw solid green;
+  background-color: Black;
+  width: 12vw;
+  position: absolute;
+  top:7vw;
+}
+.FP_Title{
+  color: white;
+}

@@ -16,5 +16,7 @@ export class FightServices {
   Fight(data:any):Observable<any>{
     return this.http.post<any>(`${this.url}/fight`,data);
   }
-
+  getAttackById(id:string):Observable<any>{
+    return this.http.get<any>(`${this.url}/attacks/${id}`);
+  }
 }

@@ -12,33 +12,52 @@ import { InventoryServices } from '../../services/inventory/inventory-services';
   styleUrl: './fight-page.css',
 })
 export class FightPage {
-
-  public attacks:any[] = []
-  public items:any[] = []
-  private item_use ="";
-  public Playerscharacters:any
-  public Botcharacters:any
-  public playermaxhealth :any
-  public botmaxhealth:any
-  public logs:any[]=[]
+  public cout = 0;
+  public attacks: any[] = [];
+  public BotAttacks: any[] = [];
+  public items: any[] = [];
+  private item_use = '';
+  public Playerscharacters: any;
+  public Botcharacters: any;
+  public playermaxhealth: any;
+  public botmaxhealth: any;
+  public logs: any[] = [];
   public finish = false;
 
-
-  constructor(private http: HttpClient, private cd: ChangeDetectorRef, private router: Router, private characterservics: CharacterServices, private fightservice:FightServices, private itemservices: InventoryServices) { }
+  constructor(
+    private http: HttpClient,
+    private cd: ChangeDetectorRef,
+    private router: Router,
+    private characterservics: CharacterServices,
+    private fightservice: FightServices,
+    private itemservices: InventoryServices,
+  ) {}
 
   ngOnInit() {
     this.characterservics.getAllCharacter().subscribe({
       next: (data) => {
-        this.Playerscharacters = data[87];
+        this.Playerscharacters = data[80];
         this.playermaxhealth = this.Playerscharacters.hp;
+        this.Playerscharacters.status = [];
         this.Botcharacters = data[87];
-        this.botmaxhealth=this.Botcharacters.hp
-        this.cd.detectChanges();
-      },
-    });
-    this.fightservice.getAllAttacks().subscribe({
-      next: (data) => {
-        this.attacks = data;
+        this.Botcharacters.status = [];
+        this.botmaxhealth = this.Botcharacters.hp;
+        this.Playerscharacters.move_set.forEach((attack :any) => {
+          this.fightservice.getAttackById(attack._id).subscribe({
+            next: (data) => {
+              this.attacks.push(data);
+              this.cd.detectChanges();
+            }
+          })
+        });
+        this.Botcharacters.move_set.forEach((move :any) => {
+          this.fightservice.getAttackById(move._id).subscribe({
+            next: (data) => {
+              this.BotAttacks.push(data);
+              this.cd.detectChanges();
+            }
+          })
+        })
         this.cd.detectChanges();
       },
     });
@@ -46,17 +65,24 @@ export class FightPage {
       next: (data) => {
         this.items = data;
         this.cd.detectChanges();
-      }
-    })
+      },
+    });
   }
-  Attaquer(attack:string) {
-    const data_send ={
-      "self":this.Playerscharacters,
-      "enemy":this.Botcharacters,
-      "attackSlug": attack,
-      "itemSlug": this.item_use,
+  Attaquer(attack: any) {
+    if (attack.fp_cost > this.cout) {
+      this.logs.push('Nombre de FP insufisant');
+      return;
+    } else {
+      this.cout = this.cout - attack.fp_cost;
     }
-    this.fightservice.Fight(data_send).subscribe({next: data => {
+    const data_send = {
+      self: this.Playerscharacters,
+      enemy: this.Botcharacters,
+      attackSlug: attack.slug,
+      itemSlug: this.item_use,
+    };
+    this.fightservice.Fight(data_send).subscribe({
+      next: (data) => {
         this.Playerscharacters = data.self;
         if (this.Playerscharacters.hp > this.playermaxhealth) {
           this.Playerscharacters.hp = this.playermaxhealth;
@@ -64,41 +90,56 @@ export class FightPage {
         this.Botcharacters = data.enemy;
         this.logs.push(data.log);
         this.cd.detectChanges();
-        this.item_use="";
-        if(this.Botcharacters.hp==0){
-          this.logs.push("YOU WIN");
+        this.item_use = '';
+        this.cout += 1;
+        if (this.Botcharacters.hp == 0) {
+          this.logs.push('YOU WIN');
           this.finish = true;
         }
-        setTimeout(  () => {
-          console.log("this is the second for bot attack");
+        setTimeout(() => {
+          console.log('this is the second for bot attack');
         }, 30000);
-        this.Bot_Attackt()
-      }}
-    )
+        this.Bot_Attackt();
+      },
+    });
   }
-  Bot_Attackt(){
-    const randomIndex = Math.floor(Math.random() * this.attacks.length);
-    const Attackrandom = this.attacks[randomIndex].slug;
-    const data_send ={
-      "self":this.Botcharacters,
-      "enemy":this.Playerscharacters,
-      "attackSlug": Attackrandom,
-      "itemSlug": null
-    }
-    this.fightservice.Fight(data_send).subscribe({next: data => {
+  Bot_Attackt() {
+    const randomIndex = Math.floor(Math.random() * this.BotAttacks.length);
+    const Attackrandom = this.BotAttacks[randomIndex].slug;
+    const data_send = {
+      self: this.Botcharacters,
+      enemy: this.Playerscharacters,
+      attackSlug: Attackrandom,
+      itemSlug: null,
+    };
+    this.fightservice.Fight(data_send).subscribe({
+      next: (data) => {
         this.Playerscharacters = data.enemy;
         this.Botcharacters = data.self;
         this.logs.push(data.log);
+        if (this.Playerscharacters.hp == 0) {
+          this.logs.push('BOT WIN');
+          this.finish = true;
+        }
         this.cd.detectChanges();
-      }}
-    )
+      },
+    });
+    if(this.Playerscharacters.status !== undefined ||this.Playerscharacters.status !== null  ){
+      if (this.Playerscharacters.status.duration > 0 || this.Playerscharacters.status.duration != null) {
+        this.Playerscharacters.status.duration -= 1;
+      }
+    }
+    if(this.Botcharacters.status !== undefined ||this.Botcharacters.status !== null  ){
+      if (this.Botcharacters.status.duration > 0 || this.Botcharacters.status.duration != null) {
+        this.Botcharacters.status.duration -= 1;
+      }
+    }
   }
 
-  Active_item(item_name:string){
-    if (item_name == this.item_use){
-      this.item_use = "";
-    }
-    else{
+  Active_item(item_name: string) {
+    if (item_name == this.item_use) {
+      this.item_use = '';
+    } else {
       this.item_use = item_name;
     }
   }
