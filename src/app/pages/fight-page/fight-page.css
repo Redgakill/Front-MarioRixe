@@ -142,3 +142,42 @@ button:hover{
   max-width: 30vw;
   max-height: 30vw;
 }
+.card-item{
+  border: 0.5vw solid #cdb51b;
+  background-color: #f1c71a;
+  width:10.5vw;
+  height:6vw;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top:40vw;
+  left:2vw;
+}
+.item{
+  width: 90%;
+  min-height: 4vw; /* Pour qu'il y en ait environ 6 de visibles */
+  background: white;
+  position: relative;
+  left: 0.6vw;
+}
+.item:hover{
+  cursor: pointer;
+  background-color:navajowhite;
+}
+.item:focus{
+  background-color: green;
+}
+.line_scroll_item{
+
+  overflow-y: auto; /* Active le scroll si ça dépasse */
+  display: flex;
+  flex-flow:row wrap;
+  gap: 1vw;
+  position: relative ;
+  left:-0.5vw;
+  /* Espace entre les boutons */
+
+  /* Masquer la barre de scroll par défaut pour le style (optionnel) */
+  scrollbar-width: thin;
+  scrollbar-color: #cdb51b black;
+}
