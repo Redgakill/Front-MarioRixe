@@ -30,4 +30,7 @@ export class CharactersPage {
       }
     })
   }
+  Mariodex(){
+    this.router.navigate(['/bestiary']);
+  }
 }

@@ -7,6 +7,24 @@
   position: fixed; /* 'fixed' est plus stable pour un arrière-plan */
   top: 0; /* On remet à 0 pour éviter le dépassement */
 }
+
+.button_mariodex{
+ position: relative;
+  top:2vw;
+  left:2vw;
+}
+
+button{
+  width: 10vh;
+  height: 5vh;
+  background-color: #BD3039;
+  border:#B22222;
+  border-radius: 10px;
+}
+button:hover{
+  cursor: pointer;
+  background-color: #8B0000;
+}
 .sprite_card{
   background-color: #8B0000;
   width: 30vw;
@@ -26,10 +44,12 @@
 .retourne{
   transform: rotateY(180deg);
 }
-.sprite_name{
-  position:relative;
+.div_name_sprite{
+  position: relative;
   top: 6vw;
-  left: 6.5vw;
+}
+.sprite_name{
+  text-align: center;
   font-size: 4vw;
   color: white;
 }
