@@ -13,13 +13,18 @@
     </div>
   </div>
   <div>
+    <div class="Fp_card">
+      <div class="FP_Title">
+        <h1>FP : {{cout}}</h1>
+      </div>
+    </div>
     <div>
       <h1 class="title-attack">Attacks:</h1>
     </div>
     <div class="card-attack ">
       <div class="line_scroll">
         @for (attack of attacks;track attack){
-          <button class="attacks-card"  (click)="Attaquer(attack.slug)" [disabled]="finish">{{attack.name}}</button>
+          <button class="attacks-card"  (click)="Attaquer(attack)" [disabled]="finish">{{attack.name}}</button>
         }
       </div>
     </div>
