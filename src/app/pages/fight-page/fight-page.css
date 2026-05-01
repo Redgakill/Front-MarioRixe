@@ -131,8 +131,7 @@ button:hover{
   border:#B22222;
   border-radius: 10px;
   position:absolute;
-
-
+  margin: 2vw;
 }
 .home-button:hover{
     cursor: pointer;

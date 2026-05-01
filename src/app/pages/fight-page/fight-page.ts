@@ -36,7 +36,7 @@ export class FightPage {
   ngOnInit() {
     this.characterservics.getAllCharacter().subscribe({
       next: (data) => {
-        this.Playerscharacters = data[80];
+        this.Playerscharacters = data[91];
         this.playermaxhealth = this.Playerscharacters.hp;
         this.Playerscharacters.status = [];
         this.Botcharacters = data[87];
@@ -70,7 +70,7 @@ export class FightPage {
   }
   Attaquer(attack: any) {
     if (attack.fp_cost > this.cout) {
-      this.logs.push('Nombre de FP insufisant');
+      this.logs.unshift('Nombre de FP insufisant');
       return;
     } else {
       this.cout = this.cout - attack.fp_cost;
@@ -88,17 +88,19 @@ export class FightPage {
           this.Playerscharacters.hp = this.playermaxhealth;
         }
         this.Botcharacters = data.enemy;
-        this.logs.push(data.log);
-        this.cd.detectChanges();
+        this.logs.unshift(data.log);
         this.item_use = '';
         this.cout += 1;
         if (this.Botcharacters.hp == 0) {
-          this.logs.push('YOU WIN');
+          this.logs.unshift('YOU WIN');
           this.finish = true;
+          this.cd.detectChanges();
+          return;
         }
         setTimeout(() => {
           console.log('this is the second for bot attack');
         }, 30000);
+        this.cd.detectChanges();
         this.Bot_Attackt();
       },
     });
@@ -116,9 +118,9 @@ export class FightPage {
       next: (data) => {
         this.Playerscharacters = data.enemy;
         this.Botcharacters = data.self;
-        this.logs.push(data.log);
+        this.logs.unshift(data.log);
         if (this.Playerscharacters.hp == 0) {
-          this.logs.push('BOT WIN');
+          this.logs.unshift('BOT WIN');
           this.finish = true;
         }
         this.cd.detectChanges();
@@ -142,5 +144,9 @@ export class FightPage {
     } else {
       this.item_use = item_name;
     }
+  }
+
+  HomePage(){
+    this.router.navigate(['/'])
   }
 }
