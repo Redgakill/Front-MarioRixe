@@ -9,11 +9,22 @@
     </div>
   </div>
   <div class="stat_card ">
-      <span class="stat">{{characters.hp}}<div class="barre_stat position-hp"><div class="barre_stat_actuel" [style.--stat]="(characters.hp*100)/maxhp"></div></div></span>
-      <span class="stat">{{characters.attack}}<div class="barre_stat position-attack"><div class="barre_stat_actuel" [style.--stat]="(characters.attack*100)/20"></div></div></span>
-      <span class="stat">{{characters.defense}}<div class="barre_stat position-defense"><div class="barre_stat_actuel" [style.--stat]="(characters.defense*100)/20"></div></div></span>
+    <p class="position_name_hp">Point de vie :</p>
+    <span class="stat">{{characters.hp}}<div class="barre_stat position-hp"><div class="barre_stat_actuel" [style.--stat]="(characters.hp*100)/maxhp"></div></div></span>
+    <p class="position_name_Attack">Attaque :</p>
+    <span class="stat">{{characters.attack}}<div class="barre_stat position-attack"><div class="barre_stat_actuel" [style.--stat]="(characters.attack*100)/20"></div></div></span>
+    <p class="position_name_defense">Defense :</p>
+    <span class="stat">{{characters.defense}}<div class="barre_stat position-defense"><div class="barre_stat_actuel" [style.--stat]="(characters.defense*100)/20"></div></div></span>
   </div>
   <div class="move_pool_card">
+    <div class="line_scroll ">
+      @for(attack of attacks; track attack){
+        <div class="Attack-card">
+          <p class="Attack-card-name">{{attack.name}}</p>
+          <div class="Attack-card-overlay"><p class="white">{{attack.damage}}</p></div>
+        </div>
 
+      }
+    </div>
   </div>
 </section>
