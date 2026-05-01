@@ -8,35 +8,53 @@
 
 .home-page img {
   filter: blur(5px);
-  position: absolute;
+  position: fixed;
   width: 100%;
   min-height: 100vh;
 }
 
 .buttonFight{
-  background-color: var(--red);
-  border: none;
-  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 0.5vw solid darkred;
+  border-radius: 1vw;
   color: white;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  font-size: 5vw;
   z-index: 100;
+  width: 20vw;
+  height: 10vw;
+  position: absolute;
+  top: 50%;
+  left: 37vw;
+}
+.buttonFight:hover{
+  background-color: rgba(0, 0, 0);
 }
 
 .buttonBestiary{
-  background-color: var(--green);
-  border: none;
-  border-radius: 8px;
+  background-color: #BD3039;
+  border: 0.5vw #B22222;
+  border-radius: 1vw;
   color: white;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   z-index: 1;
+  width: 10vh;
+  height: 5vh;
+  position: absolute;
+  top: 5%;
+  left: 2%;
+}
+
+.buttonBestiary:hover{
+  background-color: maroon;
 }
 
 .buttonInventory{
-  background-color: var(--blue);
+  background-color: #f1c71a;
   border: none;
   border-radius: 8px;
   color: white;
@@ -44,9 +62,28 @@
   text-decoration: none;
   cursor: pointer;
   z-index: 1;
+  width: 10vh;
+  height: 5vh;
+  position: absolute;
+  top: 5%;
+  left: 8%;
+}
+
+.buttonInventory:hover{
+  background-color: #d8b91e;
 }
 
 .button-containers{
   display: flex;
   z-index: 100;
+}
+.title{
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 0.5vw solid darkred;
+  border-radius: 1vw;
+  font-size: 5vw;
+  color: white;
+  position: absolute;
+  top: 5%;
+  left: 35%;
 }
