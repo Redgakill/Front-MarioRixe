@@ -12,7 +12,9 @@ import { InventoryServices } from '../../services/inventory/inventory-services';
   styleUrl: './fight-page.css',
 })
 export class FightPage {
+  public turn = 1;
   public cout = 0;
+  public Wins = "test";
   public attacks: any[] = [];
   public BotAttacks: any[] = [];
   public items: any[] = [];
@@ -50,6 +52,21 @@ export class FightPage {
             }
           })
         });
+        if(this.Playerscharacters.item_set != null || this.Playerscharacters.item_set != undefined){
+          this.Playerscharacters.item_set.forEach((item :any) => {
+            if (item._id == null || item == null) {
+              console.log("Aucun item");
+            }
+            else{
+              this.itemservices.getItemById(item._id).subscribe({
+                next: (data) => {
+                  this.items.push(data);
+                  this.cd.detectChanges();
+                }
+              })
+            }
+          });
+        }
         this.Botcharacters.move_set.forEach((move :any) => {
           this.fightservice.getAttackById(move._id).subscribe({
             next: (data) => {
@@ -61,14 +78,10 @@ export class FightPage {
         this.cd.detectChanges();
       },
     });
-    this.itemservices.getAllItem().subscribe({
-      next: (data) => {
-        this.items = data;
-        this.cd.detectChanges();
-      },
-    });
   }
   Attaquer(attack: any) {
+    this.logs.unshift('-------------------Turn',this.turn,'-------------------')
+    this.turn +=1;
     if (attack.fp_cost > this.cout) {
       this.logs.unshift('Nombre de FP insufisant');
       return;
@@ -94,6 +107,7 @@ export class FightPage {
         if (this.Botcharacters.hp == 0) {
           this.logs.unshift('YOU WIN');
           this.finish = true;
+          this.Wins = "VICTOIRE";
           this.cd.detectChanges();
           return;
         }
@@ -122,6 +136,7 @@ export class FightPage {
         if (this.Playerscharacters.hp == 0) {
           this.logs.unshift('BOT WIN');
           this.finish = true;
+          this.Wins = "DÉFAITE";
         }
         this.cd.detectChanges();
       },
