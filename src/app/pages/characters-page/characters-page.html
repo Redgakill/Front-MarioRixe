@@ -21,9 +21,13 @@
       @for(attack of attacks; track attack){
         <div class="Attack-card">
           <p class="Attack-card-name">{{attack.name}}</p>
-          <div class="Attack-card-overlay"><p class="white">{{attack.damage}}</p></div>
+          @if(attack.damage == null || attack.damage == undefined){
+            <p class="Attack-card-damage">Damage : 0</p>
+          } @else {
+            <p class="Attack-card-damage">Damage : {{attack.damage}}</p>
+          }
+          <p class="Attack-card-fp_cost">FP : {{attack.fp_cost}}</p>
         </div>
-
       }
     </div>
   </div>
