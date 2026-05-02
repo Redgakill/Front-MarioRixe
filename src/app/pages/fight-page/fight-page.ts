@@ -80,7 +80,7 @@ export class FightPage {
     });
   }
   Attaquer(attack: any) {
-    this.logs.unshift('-------------------Turn',this.turn,'-------------------')
+    this.logs.unshift('------------------Turn',this.turn,'------------------')
     this.turn +=1;
     if (attack.fp_cost > this.cout) {
       this.logs.unshift('Nombre de FP insufisant');
