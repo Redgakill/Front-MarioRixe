@@ -12,4 +12,9 @@ export class InventoryServices {
   getAllItem():Observable<any>{
     return this.http.get<any>(`${this.url}/items`);
   }
+
+  getItemById(id:string):Observable<any>{
+    return this.http.get<any>(`${this.url}/items/${id}`);
+  }
+
 }

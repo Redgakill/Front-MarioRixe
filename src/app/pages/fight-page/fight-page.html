@@ -27,7 +27,8 @@
     <div class="card-attack ">
       <div class="line_scroll">
         @for (attack of attacks;track attack){
-          <button class="attacks-card"  (click)="Attaquer(attack)" [disabled]="finish">{{attack.name}}</button>
+          <button class="attacks-card"  (click)="Attaquer(attack)" [disabled]="finish">{{attack.name}}<p class="FP_cost">FP :{{attack.fp_cost}}</p></button>
+
         }
       </div>
     </div>
@@ -46,5 +47,10 @@
       </div>
     </div>
 
+  </div>
+  <div>
+    @if (finish== true){
+      <p class="Finish_card">{{Wins}}</p>
+    }
   </div>
 </section>
