@@ -38,10 +38,10 @@ export class FightPage {
   ngOnInit() {
     this.characterservics.getAllCharacter().subscribe({
       next: (data) => {
-        this.Playerscharacters = data[83];
+        this.Playerscharacters = data[91];
         this.playermaxhealth = this.Playerscharacters.hp;
         this.Playerscharacters.status = [];
-        this.Botcharacters = data[73];
+        this.Botcharacters = data[87];
         this.Botcharacters.status = [];
         this.botmaxhealth = this.Botcharacters.hp;
         this.Playerscharacters.move_set.forEach((attack :any) => {
