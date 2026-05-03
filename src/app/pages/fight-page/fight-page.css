@@ -27,9 +27,13 @@
   transform: rotateY(180deg);
 }
 .position-bot{
+  display: flex;
+  justify-content: flex-end; /* Aligne horizontalement à DROITE */
+  align-items: flex-end;
+  transform-origin: bottom right;
   position: absolute;
-  bottom:7.5vw;
-  right:43vw;
+  bottom:8vw;
+  right:25vw;
 }
 button{
   width: 20vh;
@@ -69,7 +73,8 @@ button:hover{
   border-radius: 10vw;
   background: white;
   position: absolute;
-  left:27vw;
+  left:9vw;
+  bottom: -1.5vw;
 }
 .card-attack{
   border: 0.5vw solid darkred;
