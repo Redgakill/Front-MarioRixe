@@ -1,0 +1,28 @@
+<div class="">
+  <div class="wallpaper">
+    <img src="/Mariofondinv.jpg" alt="MarioFondInventaire">
+  </div>
+  <div>
+    <button class="button_mariodex"(click)="Inventory()" >Inventory</button>
+  </div>
+  <div class="card-sprite">
+    <img [src]="items.sprite" class="sprite">
+  </div>
+  <div class="card-detail">
+    <p class="items-name">{{items.name}}</p>
+    @if (items.effect == null){
+      <p class="items-effect">Effet: Cette objet n'as pas d'effet</p>
+    }
+    @else{
+      <p class="items-effect">Effet: {{items.effect.slug}}</p>
+    }
+    <p class="items-category">Categorie: {{items.category}}</p>
+
+    @if(items.category == "attack"){
+      <p class="items-stat">Cette objet fait {{items.hp}} de dégats</p>
+    }
+    @else{
+      <p class="items-stat">Cette objet restaure {{items.hp}} Point de vie</p>
+    }
+  </div>
+</div>

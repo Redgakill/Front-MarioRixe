@@ -39,6 +39,9 @@ export class InventoryPage {
   HomePage(){
     this.router.navigate(['/']);
   }
+  ItemPage(id:string){
+    this.router.navigate([`/inventory/${id}`]);
+  }
 }
 
 
