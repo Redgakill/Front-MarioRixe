@@ -1,0 +1,20 @@
+<div class="Background viewport ">
+  <div class="wallpaper">
+    <img src="/Maiofondlogin.jpg" alt="MarioFond">
+  </div>
+  <div class="container">
+    <div class="card-inscription">
+      <h2 class="Inscription">Inscription :</h2>
+      <h3 class="Title">Pseudo:</h3>
+      <input class="input" placeholder="Pseudo" [(ngModel)]="Pseudo">
+      <h3 class="Title">Email:</h3>
+      <input class="input" placeholder="Email" [(ngModel)]="Mail">
+      <h3 class="Title">Mot de passe:</h3>
+      <input class="input" placeholder="Password" [(ngModel)]="Password">
+      <h3 class="Title">Confirmation:</h3>
+      <input class="input" placeholder="Confirm Password" [(ngModel)]="PasswordConfirm">
+      <p></p>
+      <button class="button" (click)="Inscription()">Signup</button>
+    </div>
+  </div>
+</div>

@@ -87,3 +87,33 @@
   top: 5%;
   left: 35%;
 }
+.buttonLogin{
+  background-color: #007BFF;
+  border: none;
+  border-radius: 0.5vw;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+  width: 10vh;
+  height: 5vh;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+.buttonSignup{
+  background-color: #001432;
+  border: none;
+  border-radius: 0.5vw;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+  width: 10vh;
+  height: 5vh;
+  position: absolute;
+  top: 5%;
+  right: 11%;
+}

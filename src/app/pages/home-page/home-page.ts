@@ -25,4 +25,12 @@ export class HomePage {
   DirFight(){
     this.router.navigate(['/fight']);
   }
+
+  DirLogin(){
+    this.router.navigate(['/login']);
+  }
+
+  DirSignUp(){
+    this.router.navigate(['/inscription']);
+  }
 }
