@@ -20,7 +20,7 @@
   </div>
   <div class="grille padding-5 ">
     @for(character of characters ; track character){
-      <div class=" padding-3">
+      <div class=" padding-3 container">
         <img src="{{character.inv_sprite}}" (click)="CharacterPage(character._id)">
         <h1 class="name_character">{{character.name}}</h1>
       </div>

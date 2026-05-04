@@ -66,8 +66,9 @@ select:hover{
   color: white;
   text-align: center;
 }
-img:hover{
+.container:hover{
   cursor: pointer;
+  scale: 1.1;
 }
 .padding-3{
   padding: 3vh;

@@ -19,8 +19,10 @@
   <div class="grille ">
     @for(item of items ; track item){
       <div class="center-left">
-        <img src="{{item.sprite}}">
-        <p>{{item.name}}</p>
+        <div class="container" (click)="ItemPage(item._id)">
+          <img class="image_container" src="{{item.sprite}}" >
+          <p>{{item.name}}</p>
+        </div>
       </div>
     }
   </div>

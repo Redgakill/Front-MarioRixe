@@ -4,6 +4,7 @@ import {FightPage} from './pages/fight-page/fight-page';
 import {BestiaryPage} from './pages/bestiary-page/bestiary-page';
 import {InventoryPage} from './pages/inventory-page/inventory-page';
 import { CharactersPage } from './pages/characters-page/characters-page';
+import { ItemsPages } from './pages/items-pages/items-pages';
 
 export const routes: Routes = [
   {path: '', component: HomePage},
@@ -11,4 +12,5 @@ export const routes: Routes = [
   {path: 'bestiary', component: BestiaryPage},
   {path: 'inventory', component: InventoryPage },
   {path: 'character/:id', component: CharactersPage},
+  {path: 'inventory/:id', component: ItemsPages},
 ];

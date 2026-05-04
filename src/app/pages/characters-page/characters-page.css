@@ -1,5 +1,13 @@
 .Background_characters {
-  background: linear-gradient(162deg,rgba(155, 42, 42, 1) 24%, rgba(212, 106, 106, 1) 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.wallpaper img{
+  position: fixed ;
+  width: 100%;
+  min-height: 100vh;
+  z-index: -1;
 }
 .viewport_page{
   width: 100%;
@@ -26,11 +34,11 @@ button:hover{
   background-color: #8B0000;
 }
 .sprite_card{
-  background-color: #8B0000;
+  background-color: rgba(200,200, 200, 0.8);
   width: 30vw;
   height:35vw;
   border-radius: 2vw;
-  border: 1vw solid maroon;
+  border: 10px solid rgba(255,255, 255, 0.6);
   position: relative;
   top: 5vw;
   left: 10vw;
@@ -52,14 +60,14 @@ button:hover{
 .sprite_name{
   text-align: center;
   font-size: 3vw;
-  color: white;
+  color: black;
 }
 .stat_card{
-  background-color: #8B0000;
+  background-color: rgba(200,200, 200, 0.8);
   width: 40vw;
   height:20vw;
   border-radius: 2vw;
-  border: 1vw solid maroon;
+  border: 10px solid rgba(255,255, 255, 0.6);
   position: relative;
   top: -30vw;
   left: 50vw;
@@ -70,7 +78,7 @@ button:hover{
 
 .stat{
   margin: 1vw;
-  color: white;
+  color: black;
   font-size: 2vw;
 }
 .barre_stat{
@@ -80,6 +88,7 @@ button:hover{
   border-radius: 10vw;
   background: white;
   position: absolute;
+
 }
 .barre_stat_actuel{
   border: 0;
@@ -103,32 +112,32 @@ button:hover{
   left: 4.4vw;
 }
 .position_name_hp{
-  color: white;
+  color: black;
   position: absolute;
   top: -0.5vw;
   left: 0.5vw;
   font-size: 2vw;
 }
 .position_name_defense{
-  color: white;
+  color: black;
   position: absolute;
   top: 11vw;
   left: 0.5vw;
   font-size: 2vw;
 }
 .position_name_Attack{
-  color: white;
+  color: black;
   position: absolute;
   top: 5vw;
   left: 0.5vw;
   font-size: 2vw;
 }
 .move_pool_card{
-  background-color: #8B0000;
+  background-color: rgba(200,200, 200, 0.8);
   border-radius: 2vw;
   display: flex;
   flex-direction: column;
-  border: 1vw solid maroon;
+  border: 10px solid rgba(255,255, 255, 0.6);
   width: 40vw;
   height: 20vw;
   position: absolute;
