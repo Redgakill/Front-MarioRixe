@@ -6,9 +6,12 @@
     <div class="card-inscription">
       <h2 class="Inscription">Connexion:</h2>
       <h3 class="Title">Email:</h3>
-      <input class="input" placeholder="Email" [(ngModel)]="Mail">
+      <input class="input"  type="text" placeholder="Email" [(ngModel)]="Mail">
       <h3 class="Title">Mot de passe:</h3>
-      <input class="input" placeholder="Password" [(ngModel)]="Password">
+      <input class="input" [type]="passwordVisible ? 'text' : 'password'" placeholder="Password" [(ngModel)]="Password">
+        <button type="button" class="toggle-btn" (click)="MDPvisible()">
+          {{ passwordVisible ? '🙈' : '👁️' }}
+        </button>
       <p></p>
       <button class="button" (click)="Login()" >Login</button>
     </div>
