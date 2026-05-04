@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './signup-page.css',
 })
 export class SignupPage {
+  public passwordVisible: boolean = false;
   public Pseudo: any;
   public Password: any;
   public PasswordConfirm: any;
@@ -54,5 +55,11 @@ export class SignupPage {
         }
       },
     });
+  }
+  HomePage(){
+    this.router.navigateByUrl('/');
+  }
+  MDPvisible(){
+    this.passwordVisible = !this.passwordVisible;
   }
 }

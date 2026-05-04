@@ -6,15 +6,24 @@
     <div class="card-inscription">
       <h2 class="Inscription">Inscription :</h2>
       <h3 class="Title">Pseudo:</h3>
-      <input class="input" placeholder="Pseudo" [(ngModel)]="Pseudo">
+      <input class="input" type="text" placeholder="Pseudo" [(ngModel)]="Pseudo">
       <h3 class="Title">Email:</h3>
-      <input class="input" placeholder="Email" [(ngModel)]="Mail">
+      <input class="input" type="text" placeholder="Email" [(ngModel)]="Mail">
       <h3 class="Title">Mot de passe:</h3>
-      <input class="input" placeholder="Password" [(ngModel)]="Password">
+      <input class="input" [type]="passwordVisible ? 'text' : 'password'" placeholder="Password" [(ngModel)]="Password">
+      <button type="button" class="toggle-btn" (click)="MDPvisible()">
+        {{ passwordVisible ? '🙈' : '👁️' }}
+      </button>
       <h3 class="Title">Confirmation:</h3>
-      <input class="input" placeholder="Confirm Password" [(ngModel)]="PasswordConfirm">
+      <input class="input" [type]="passwordVisible ? 'text' : 'password'" placeholder="Confirm Password" [(ngModel)]="PasswordConfirm">
+      <button type="button" class="toggle-btn" (click)="MDPvisible()">
+        {{ passwordVisible ? '🙈' : '👁️' }}
+      </button>
       <p></p>
       <button class="button" (click)="Inscription()">Signup</button>
     </div>
+  </div>
+  <div>
+    <button class="Home-button" (click)="HomePage()">Home</button>
   </div>
 </div>

@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './login-page.css',
 })
 export class LoginPage {
-
+  public passwordVisible: boolean = false;
   public Mail:any;
   public Password:any;
 
@@ -46,5 +46,8 @@ export class LoginPage {
   }
   HomePage(){
     this.router.navigateByUrl('/');
+  }
+  MDPvisible(){
+    this.passwordVisible = !this.passwordVisible;
   }
 }
