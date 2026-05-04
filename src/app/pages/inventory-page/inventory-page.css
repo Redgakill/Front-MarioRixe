@@ -1,9 +1,20 @@
 .Background {
-  background: linear-gradient(162deg, rgb(184, 191, 23) 24%, rgb(213, 194, 5) 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+.wallpaper {
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  z-index: -1;
+}
+
+
 .viewport{
-  width: 100%;  /* 100% de la largeur de la fenêtre */
-  height: 100%;
+  width: 100%;
+  min-height: 100vh;
 }
 .title{
   text-align: center;
