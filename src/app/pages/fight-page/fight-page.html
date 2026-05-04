@@ -53,4 +53,10 @@
       <p class="Finish_card">{{Wins}}</p>
     }
   </div>
+  @if(rapport()) {
+    <div class="Rapport-IA">
+      <p>Le chargement est actif !</p>
+      {{ rapport() }}
+    </div>
+  }
 </section>

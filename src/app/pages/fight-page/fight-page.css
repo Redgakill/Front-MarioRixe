@@ -212,3 +212,15 @@ button:hover{
   left: 45vw;
   top: 8vw;
 }
+.Rapport-IA{
+  width:25vw;
+  height:25vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  position: absolute;
+  top: 15vw;
+  left:35vw;
+}
+.Rapport-IA-else{
+  color:rgba(0, 0, 0, 0);
+}
