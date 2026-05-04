@@ -213,13 +213,19 @@ button:hover{
   top: 8vw;
 }
 .Rapport-IA{
-  width:25vw;
+  width:30vw;
   height:25vw;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   position: absolute;
   top: 15vw;
   left:35vw;
+  box-sizing: border-box;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .Rapport-IA-else{
   color:rgba(0, 0, 0, 0);

@@ -89,6 +89,7 @@ export class FightPage {
     this.canAttack = false;
     if (attack.fp_cost > this.cout) {
       this.logs.unshift('Nombre de FP insufisant');
+      this.canAttack = true;
       return;
     } else {
       this.logs.unshift('------------------Turn',this.turn,'------------------')
