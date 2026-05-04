@@ -1,9 +1,10 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CharacterServices } from '../../services/character/character-services';
 import { FightServices } from '../../services/fight/fight-services';
 import { InventoryServices } from '../../services/inventory/inventory-services';
+import { IAServices } from '../../services/IA/ia-services';
 
 @Component({
   selector: 'app-fight-page',
@@ -12,6 +13,9 @@ import { InventoryServices } from '../../services/inventory/inventory-services';
   styleUrl: './fight-page.css',
 })
 export class FightPage {
+  public canAttack: boolean = true;
+  rapport = signal<string>('');
+  public isloading = false;
   public turn = 1;
   public cout = 0;
   public Wins = "test";
@@ -33,6 +37,7 @@ export class FightPage {
     private characterservics: CharacterServices,
     private fightservice: FightServices,
     private itemservices: InventoryServices,
+    private iaservices : IAServices,
   ) {}
 
   ngOnInit() {
@@ -41,7 +46,7 @@ export class FightPage {
         this.Playerscharacters = data[91];
         this.playermaxhealth = this.Playerscharacters.hp;
         this.Playerscharacters.status = [];
-        this.Botcharacters = data[87];
+        this.Botcharacters = data[79];
         this.Botcharacters.status = [];
         this.botmaxhealth = this.Botcharacters.hp;
         this.Playerscharacters.move_set.forEach((attack :any) => {
@@ -80,12 +85,14 @@ export class FightPage {
     });
   }
   Attaquer(attack: any) {
-    this.logs.unshift('------------------Turn',this.turn,'------------------')
-    this.turn +=1;
+    if (!this.canAttack) return;
+    this.canAttack = false;
     if (attack.fp_cost > this.cout) {
       this.logs.unshift('Nombre de FP insufisant');
       return;
     } else {
+      this.logs.unshift('------------------Turn',this.turn,'------------------')
+      this.turn +=1;
       this.cout = this.cout - attack.fp_cost;
     }
     const data_send = {
@@ -108,6 +115,7 @@ export class FightPage {
           this.logs.unshift('YOU WIN');
           this.finish = true;
           this.Wins = "VICTOIRE";
+          this.Report_IA()
           this.cd.detectChanges();
           return;
         }
@@ -116,6 +124,7 @@ export class FightPage {
         }, 30000);
         this.cd.detectChanges();
         this.Bot_Attackt();
+        this.canAttack = true;
       },
     });
   }
@@ -137,6 +146,7 @@ export class FightPage {
           this.logs.unshift('BOT WIN');
           this.finish = true;
           this.Wins = "DÉFAITE";
+          this.Report_IA()
         }
         this.cd.detectChanges();
       },
@@ -159,6 +169,24 @@ export class FightPage {
     } else {
       this.item_use = item_name;
     }
+  }
+
+
+  Report_IA(){
+    const data_send = {
+      Joueur:this.Playerscharacters.name,
+      Enemy:this.Botcharacters.name,
+      Joueur_hp:this.Playerscharacters.hp,
+      Enemy_hp:this.Botcharacters.hp,
+      logs:this.logs,
+    }
+    this.iaservices.Report(data_send).subscribe({
+      next: (data) => {
+        this.isloading=true;
+        this.rapport.set(data.report);
+        console.log(data.report);
+      }
+    })
   }
 
   HomePage(){
