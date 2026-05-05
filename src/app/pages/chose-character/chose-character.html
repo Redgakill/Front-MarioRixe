@@ -1,0 +1,23 @@
+<div class="Background viewport ">
+  <div class="wallpaper">
+    <img src="/fond_vert.png" alt="MarioFond">
+  </div>
+  <div class="title">
+    <h3>Choisi la difficulter:</h3>
+    <div class="difficulty">
+      <button>Facile</button>
+      <button>Moyen</button>
+      <button>Difficile</button>
+    </div>
+  </div>
+  <div class="Line"></div>
+  <h1 class="title">Choisi ton personnage :</h1>
+  <div class="grille padding-5 ">
+    @for(character of characters ; track character){
+      <div class=" padding-3 container">
+        <img src="{{character.inv_sprite}}">
+        <h1 class="name_character">{{character.name}}</h1>
+      </div>
+    }
+  </div>
+</div>
