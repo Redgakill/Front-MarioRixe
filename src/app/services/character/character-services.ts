@@ -12,7 +12,7 @@ constructor(private http: HttpClient) { }
   getAllCharacter():Observable<any>{
     return this.http.get<any>(`${this.url}/characters`);
   }
-  getCharacterbyId(id:string){
+  getCharacterbyId(id:any){
     return this.http.get<any>(`${this.url}/characters/${id}`);
   }
 }

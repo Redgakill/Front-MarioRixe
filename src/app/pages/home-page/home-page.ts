@@ -23,7 +23,7 @@ export class HomePage {
 
 
   DirFight(){
-    this.router.navigate(['/fight']);
+    this.router.navigate(['/teams']);
   }
 
   DirLogin(){
