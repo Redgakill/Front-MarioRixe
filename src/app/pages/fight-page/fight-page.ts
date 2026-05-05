@@ -13,6 +13,8 @@ import { IAServices } from '../../services/IA/ia-services';
   styleUrl: './fight-page.css',
 })
 export class FightPage {
+  private id_player=sessionStorage.getItem('player');
+  private id_bot=sessionStorage.getItem('bot');
   public canAttack: boolean = true;
   rapport = signal<string>('');
   public isloading = false;
@@ -41,14 +43,11 @@ export class FightPage {
   ) {}
 
   ngOnInit() {
-    this.characterservics.getAllCharacter().subscribe({
+    this.characterservics.getCharacterbyId(this.id_player).subscribe({
       next: (data) => {
-        this.Playerscharacters = data[91];
+        this.Playerscharacters = data;
         this.playermaxhealth = this.Playerscharacters.hp;
         this.Playerscharacters.status = [];
-        this.Botcharacters = data[79];
-        this.Botcharacters.status = [];
-        this.botmaxhealth = this.Botcharacters.hp;
         this.Playerscharacters.move_set.forEach((attack :any) => {
           this.fightservice.getAttackById(attack._id).subscribe({
             next: (data) => {
@@ -56,22 +55,29 @@ export class FightPage {
               this.cd.detectChanges();
             }
           })
+          if(this.Playerscharacters.item_set != null || this.Playerscharacters.item_set != undefined){
+            this.Playerscharacters.item_set.forEach((item :any) => {
+              if (item._id == null || item == null) {
+                console.log("Aucun item");
+              }
+              else{
+                this.itemservices.getItemById(item._id).subscribe({
+                  next: (data) => {
+                    this.items.push(data);
+                    this.cd.detectChanges();
+                  }
+                })
+              }
+            });
+          }
         });
-        if(this.Playerscharacters.item_set != null || this.Playerscharacters.item_set != undefined){
-          this.Playerscharacters.item_set.forEach((item :any) => {
-            if (item._id == null || item == null) {
-              console.log("Aucun item");
-            }
-            else{
-              this.itemservices.getItemById(item._id).subscribe({
-                next: (data) => {
-                  this.items.push(data);
-                  this.cd.detectChanges();
-                }
-              })
-            }
-          });
-        }
+      }
+    })
+    this.characterservics.getCharacterbyId(this.id_bot).subscribe({
+      next: (data) => {
+        this.Botcharacters = data;
+        this.Botcharacters.status = [];
+        this.botmaxhealth = this.Botcharacters.hp;
         this.Botcharacters.move_set.forEach((move :any) => {
           this.fightservice.getAttackById(move._id).subscribe({
             next: (data) => {
@@ -80,9 +86,8 @@ export class FightPage {
             }
           })
         })
-        this.cd.detectChanges();
-      },
-    });
+      }
+    })
   }
   Attaquer(attack: any) {
     if (!this.canAttack) return;

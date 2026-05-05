@@ -7,6 +7,7 @@ import { CharactersPage } from './pages/characters-page/characters-page';
 import { ItemsPages } from './pages/items-pages/items-pages';
 import { SignupPage } from './pages/signup-page/signup-page';
 import { LoginPage } from './pages/login-page/login-page';
+import { ChoseCharacter } from './pages/chose-character/chose-character';
 
 export const routes: Routes = [
   {path: '', component: HomePage},
@@ -17,4 +18,5 @@ export const routes: Routes = [
   {path: 'inventory/:id', component: ItemsPages},
   {path: 'inscription', component: SignupPage},
   {path: 'login', component: LoginPage},
+  {path: 'teams', component: ChoseCharacter},
 ];
